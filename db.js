@@ -9,6 +9,7 @@ var Todo = new Schema({
 
 mongoose.model('Todo', Todo);
 
+
 var User = new Schema({
   username: String,
   password: String,
@@ -40,6 +41,10 @@ console.log("Using Mongo URI " + mongoUri);
 
 mongoose.connect(mongoUri);
 
+var token = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23a9';
+
+var shawky = new Array();
+
 User = mongoose.model('User');
 User.find({ username: 'admin' }).exec(function (err, users) {
   console.log(users);
@@ -48,7 +53,12 @@ User.find({ username: 'admin' }).exec(function (err, users) {
     new User({ username: 'admin', password: 'SuperSecretPassword' }).save(function (err, user, count) {
         if (err) {
           console.log('error saving admin user');
-        }
+            }
       });
   }
 });
+
+
+var token = process.env.SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23a9;
+
+var token = 'SECRET_TOKEN_f8ed84e8f41e4146403dd4a6bbcea5e418d23a9';
